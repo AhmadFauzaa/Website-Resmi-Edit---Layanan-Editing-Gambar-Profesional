@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi Edit - Layanan Editing Gambar Profesional</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-full text-slate-800">
+
+    <!-- Header & Navigasi -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-blue-500/20">
+                        S
+                    </div>
+                    <span class="ml-3 text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700">StudioKreatif</span>
+                </div>
+
+                <!-- Navigasi Desktop -->
+                <nav class="hidden md:flex space-x-1">
+                    <button onclick="navigateTo('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        HOME
+                    </button>
+                    <button onclick="navigateTo('lainnya')" id="nav-lainnya" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        LAINNYA
+                    </button>
+                    <button onclick="navigateTo('tentang')" id="nav-tentang" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        TENTANG
+                    </button>
+                    <button onclick="navigateTo('profil')" id="nav-profil" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        PROFIL PEMBUAT
+                    </button>
+                    <button onclick="navigateTo('pesan')" id="nav-pesan" class="ml-2 px-4 py-2 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/20 transition-all hover:-translate-y-0.5 active:translate-y-0">
+                        PESAN SEKARANG
+                    </button>
+                </nav>
+
+                <!-- Tombol Menu Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigasi Mobile -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1">
+            <button onclick="navigateTo('home'); toggleMobileMenu();" class="mobile-nav-btn block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">
+                HOME
+            </button>
+            <button onclick="navigateTo('lainnya'); toggleMobileMenu();" class="mobile-nav-btn block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">
+                LAINNYA
+            </button>
+            <button onclick="navigateTo('tentang'); toggleMobileMenu();" class="mobile-nav-btn block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">
+                TENTANG
+            </button>
+            <button onclick="navigateTo('profil'); toggleMobileMenu();" class="mobile-nav-btn block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">
+                PROFIL PEMBUAT
+            </button>
+            <button onclick="navigateTo('pesan'); toggleMobileMenu();" class="block w-full text-center mt-2 px-4 py-2.5 rounded-lg text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm">
+                PESAN SEKARANG
+            </button>
+        </div>
+    </header>
+
+    <!-- Konten Utama (Dynamic Pages) -->
+    <main class="flex-grow">
+
+        <!-- 1. HALAMAN HOME -->
+        <section id="page-home" class="page-section active">
+            <!-- Hero Section -->
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-20 lg:pb-24 text-center">
+                <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700 mb-4">
+                    Solusi Pengeditan Gambar Apapun Terpercaya
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    Wujudkan Ide Digital Anda <br class="hidden sm:inline"> Menjadi <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Kenyataan</span>
+                </h1>
+                <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    Kami menghadirkan layanan pembuatan dan pengeditan gambar profesional untuk memenuhi kebutuhan desain Anda.
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <button onclick="navigateTo('pesan')" class="px-6 py-3.5 rounded-xl text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/25 transition-all hover:-translate-y-0.5">
+                        Mulai Sekarang
+                    </button>
+                    <button onclick="navigateTo('tentang')" class="px-6 py-3.5 rounded-xl text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm transition-all">
+                        Pelajari Lebih Lanjut
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ringkasan Fitur/Keunggulan -->
+            <div class="bg-white py-16 border-y border-slate-100">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xl mb-4"><img src="images.jpg" alt="Image Icon" class="w-6 h-6"></div>
+                            <h3 class="text-lg font-bold text-slate-900">Kualitas Gambar HD</h3>
+                            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Gambar yang diedit memiliki kualitas tinggi dan detail yang tajam.</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xl mb-4"><img src="images2.png" alt="Responsive Icon" class="w-6 h-6"></div>
+                            <h3 class="text-lg font-bold text-slate-900">Banyak Request di terima</h3>
+                            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Tampilan sempurna di semua layar baik smartphone, tablet, maupun desktop.</p>
+                        </div>
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                            <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold text-xl mb-4"><img src="image3.avif" alt="Secure Icon" class="w-6 h-6"></div>
+                            <h3 class="text-lg font-bold text-slate-900">Aman & Terpercaya</h3>
+                            <p class="mt-2 text-slate-600 text-sm leading-relaxed">Menggunakan standar keamanan terbaru untuk melindungi data Anda dan pelanggan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. HALAMAN LAINNYA -->
+        <section id="page-lainnya" class="page-section">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900">Fitur & Layanan Lainnya</h2>
+                    <p class="mt-3 text-slate-600">Jelajahi berbagai layanan tambahan yang kami sediakan untuk membuat gambar anda mejadi leibih hidup dan menarik.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Kartu 1 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="text-3xl mb-3">🎨</div>
+                        <h3 class="text-lg font-bold text-slate-900">TAMBAH GAMBAR</h3>
+                        <p class="mt-2 text-sm text-slate-600">Tambahkan gambar baru ke dalam proyek Anda untuk meningkatkan visualnya.</p>
+                    </div>
+
+                    <!-- Kartu 2 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="text-3xl mb-3">🔍</div>
+                        <h3 class="text-lg font-bold text-slate-900">TAMBAH OBJEK</h3>
+                        <p class="mt-2 text-sm text-slate-600">Tambahkan objek atau elemen lain ke dalam gambar untuk meningkatkan konteksnya.</p>
+                    </div>
+
+                    <!-- Kartu 3 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="text-3xl mb-3">🛒</div>
+                        <h3 class="text-lg font-bold text-slate-900">TAMBAH PAKAIAN</h3>
+                        <p class="mt-2 text-sm text-slate-600">Tambahkan pakaian atau aksesori ke dalam gambar untuk meningkatkan visualnya.</p>
+                    </div>
+
+                    <!-- Kartu 4 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="text-3xl mb-3">🚀</div>
+                        <h3 class="text-lg font-bold text-slate-900">UBAH POSISI</h3>
+                        <p class="mt-2 text-sm text-slate-600">Ubah posisi elemen pada halaman web untuk meningkatkan tampilan dan navigasi.</p>
+                    </div>
+
+                    <!-- Kartu 5 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="text-3xl mb-3">🛠️</div>
+                        <h3 class="text-lg font-bold text-slate-900">HAPUS LATAR BELAKANG</h3>
+                        <p class="mt-2 text-sm text-slate-600">Hapus latar belakang yang tidak diperlukan untuk meningkatkan tampilan visual.</p>
+                    </div>
+
+                    <!-- Kartu 6 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="text-3xl mb-3">📢</div>
+                        <h3 class="text-lg font-bold text-slate-900">TAMBAH TEKS</h3>
+                        <p class="mt-2 text-sm text-slate-600">Tambahkan teks yang menarik untuk meningkatkan engagement pengguna.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. HALAMAN TENTANG -->
+        <section id="page-tentang" class="page-section">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-slate-200">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6 text-center">Tentang Kami</h2>
+                    
+                    <div class="space-y-6 text-slate-600 leading-relaxed">
+                        <p>
+                            <strong>StudioKreatif</strong>  Adalah website yang menyediakan layanan editing gambar berbasis teknologi terkini.
+                        </p>
+                        <p>
+                            Berbekal pengalaman dan dedikasi pada kualitas, setiap baris kode dan elemen desain yang kami buat ditujukan untuk memberikan nilai terbaik bagi pengguna.
+                        </p>
+
+                        <div class="pt-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">Visi Kami</h4>
+                                <p class="text-sm">Menjadi mitra teknologi terpercaya yang mempermudah transformasi digital bagi semua tingkatan bisnis.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">Misi Kami</h4>
+                                <p class="text-sm">Menghadirkan layanan berkualitas tinggi dengan transparansi, kecepatan, dan kepuasan pelanggan sebagai prioritas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- 3.5 HALAMAN PROFIL PEMBUAT -->
+        <section id="page-profil" class="page-section">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-slate-200">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <!-- Avatar / Foto Profil (Gambar Visual SVG) -->
+                        <div class="flex-shrink-0">
+                            <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-to-tr from-blue-0 to-indigo-500 p-1 shadow-lg overflow-hidden">
+                                <div class="w-full h-full rounded-full flex items-center justify-center overflow-hidden">
+                                    <img src="image_profil.jpg" alt="Foto Profil">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Info Profil -->
+                        <div class="text-center md:text-left flex-grow">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700 mb-2">
+                                Designer & Image Editor
+                            </span>
+                            <h2 class="text-3xl font-bold text-slate-900">AHMAD FAUZAN</h2>
+                            <p class="text-slate-500 text-sm mt-1">Spesialis Manipulasi Gambar</p>
+                            <p class="mt-4 text-slate-600 leading-relaxed text-sm sm:text-base">
+                                Halo! Saya adalah kreator di balik StudioKreatif. Dengan pengalaman bertahun-tahun di bidang visual editing dan desain digital, saya bertekad memberikan hasil manipulasi gambar terbaik yang presisi, kreatif, dan profesional untuk setiap kebutuhan pribadi maupun bisnis Anda.
+                            </p>
+
+                            <!-- Keahlian -->
+                            <div class="mt-6">
+                                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Keahlian Utamanya:</h4>
+                                <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                                    <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">Photo Manipulation</span>
+                                    <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">Background Removal</span>
+                                    <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">Color Grading</span>
+                                    <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">Digital Retouching</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 4. HALAMAN PESAN SEKARANG -->
+        <section id="page-pesan" class="page-section">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-200">
+                    <h2 class="text-2xl font-bold text-slate-900 text-center">Formulir Pemesanan</h2>
+                    <p class="mt-2 text-sm text-slate-600 text-center mb-8">Isi formulir di bawah ini untuk memulai proyek Anda bersama kami.</p>
+
+                    <!-- Alert Pesan Sukses -->
+                    <div id="alert-success" class="hidden mb-6 p-4 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-xl text-sm flex items-center">
+                        <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Pesanan berhasil dikirim! Kami akan menghubungi Anda segera.</span>
+                    </div>
+
+                    <form id="orderForm" onsubmit="submitForm(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap</label>
+                            <input type="text" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Alamat Email</label>
+                            <input type="email" required placeholder="nama@email.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Pilih Layanan</label>
+                            <select required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm bg-white">
+                                <option value="" disabled selected>-- Pilih Layanan --</option>
+                                <option value="website">Pembuatan Website Landing Page</option>
+                                <option value="tokoonline">Pembuatan Toko Online</option>
+                                <option value="design">Desain UI/UX</option>
+                                <option value="lainnya">Layanan Lainnya</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Catatan / Detail Pesanan</label>
+                            <textarea rows="4" placeholder="Jelaskan kebutuhan atau gambaran proyek Anda..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 px-4 rounded-xl text-white font-semibold bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/25 transition-all mt-2">
+                            Kirim Pesanan Sekarang
+                        </button>
+                        Atau Hubungi saya melalui WhatsApp: <button class="w-full py-3.5 px-4 rounded-xl text-white font-semibold bg-green-600 hover:bg-green-700 shadow-lg shadow-blue-500/25 transition-all mt-2"><a href="https://wa.me/6289525775023" target="_blank" class="text-white font-semibold hover:underline">+62 895-2577-5023</a></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center text-slate-500 text-sm">
+            <p>&copy; 2026 StudioKreatif. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logika Perpindahan Halaman & Interaktivitas -->
+    <script>
+        // Fungsi untuk berpindah halaman tanpa reload
+        function navigateTo(pageId) {
+            // Sembunyikan semua halaman
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Tampilkan halaman yang dipilih
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // Update gaya tombol navigasi aktif
+            updateNavStyles(pageId);
+
+            // Scroll ke atas otomatis
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Fungsi memperbarui tampilan status aktif menu navigasi
+        function updateNavStyles(activePageId) {
+            const navButtons = ['home', 'lainnya', 'tentang', 'profil'];
+            
+            navButtons.forEach(id => {
+                const btn = document.getElementById('nav-' + id);
+                if (btn) {
+                    if (id === activePageId) {
+                        btn.className = "nav-btn px-4 py-2 rounded-lg text-sm font-semibold bg-slate-100 text-blue-600";
+                    } else {
+                        btn.className = "nav-btn px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50";
+                    }
+                }
+            });
+        }
+
+        // Toggle Menu untuk Layar HP (Mobile)
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Penanganan Submit Form Pesan
+        function submitForm(event) {
+            event.preventDefault(); // Mencegah reload halaman
+            
+            const alertSuccess = document.getElementById('alert-success');
+            const form = document.getElementById('orderForm');
+
+            // Tampilkan notifikasi berhasil
+            alertSuccess.classList.remove('hidden');
+
+            // Reset formulir
+            form.reset();
+
+            // Sembunyikan notifikasi setelah 5 detik
+            setTimeout(() => {
+                alertSuccess.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Setel halaman default ke 'home' saat pertama kali dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            navigateTo('home');
+        });
+    </script>
+</body>
+</html>
